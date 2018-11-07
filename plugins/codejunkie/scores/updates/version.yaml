@@ -1,0 +1,7 @@
+1.0.1: First version of Scores
+1.0.2:
+    - Create the Colleges Table
+    - create_colleges_table.php
+1.0.3:
+    - Modify Score table to store user input data and results
+    - create_scores_table.php

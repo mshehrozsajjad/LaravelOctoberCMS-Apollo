@@ -1,0 +1,30 @@
+title = "Edit News"
+url = "/admin/editnews"
+layout = "admin"
+is_hidden = 0
+
+[EditNews]
+
+==
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Newsletter</span>
+            <h3 class="page-title">Edit Newsletter</h3>
+        </div>
+    </div>
+    <!-- End Page Header -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <!-- Add New Post Form -->
+            <div class="card card-small mb-3">
+                <div class="card-body">
+                    {% component 'EditNews' %}
+                </div>
+            </div>
+            <!-- / Add New Post Form -->
+        </div>
+
+    </div>
+</div>

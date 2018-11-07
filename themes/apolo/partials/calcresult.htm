@@ -1,0 +1,40 @@
+{% if result %}
+    <div class="row col-sm-12 ml-2 justify-content-center mb-2">
+        <div class="col-sm-12 mt-2 ml-4" id="result">
+            <h1 class="text-white"> Your Results</h1>
+            <h1 class=" {% if result == 'VERY LIKELY' %} text-success
+                        {% elseif result == 'LIKELY'  %} text-success
+                        {% elseif result == 'Please enter your scores'  %} text-white
+                        {% elseif result == 'AVERAGE'  %} text-yellow
+                        {% elseif result == 'UNLIKELY'  %} text-warning
+                        {% elseif result == 'VERY UNLIKELY'  %} text-danger
+                        {% else  %} text-info
+                        {% endif %} mt-2"
+                id="search_result"><span >{{result}}</span></h1>
+            <h4 class="text-white mt-5">
+                    {% if result == 'VERY LIKELY' %} Your Stats are higher than the schools average, making you a
+                        likely candidate to be accepted! Keep up the great work!
+                    {% elseif result == 'LIKELY'  %}  Your Stats are higher than the schools average, making you a
+                        likely candidate to be accepted! Keep up the great work!
+                    {% elseif result == 'AVERAGE'  %} Your Stats are around the school's average, we wish you good luck Keep working hard!
+                    {% elseif result == 'UNLIKELY'  %} Your Stats are not up to mark of this college. We recommend you find another college.
+                    {% elseif result == 'VERY UNLIKELY'  %} Your Stats are not up to mark of this college. We recommend you find another college.
+                    {% endif %}
+
+            </h4>
+        </div>
+    </div>
+{% else %}
+    <div class="row col-sm-12 justify-content-center mb-5">
+        <div class="col-sm-12 mt-5 " id="result">
+             <h1 class="text-info mt-2" id="search_result">
+                <span >
+                    Please enter your scores
+                </span>
+            </h1>
+            <h4 class="text-white">
+                    Please enter your SAT, GPA, ACT scores and enter your desired college name.
+            </h4>
+        </div>
+    </div>
+{% endif %}

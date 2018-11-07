@@ -1,0 +1,91 @@
+description = "Default layout"
+
+[session]
+security = "all"
+
+==
+
+
+function onRefreshResult(){
+    return [
+        '#result' => $this->renderPartial('site/result/result')
+    ];
+}
+
+
+==
+<!doctype html>
+    <html class="no-js" lang="en">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127396385-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127396385-1');
+</script>
+
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Apollo</title>
+        <meta name="description" content="A platform to help students to get into College.">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="{{'assets/css/bootstrap.min.css'|theme}}" >
+        <link rel="stylesheet" href="{{'assets/fonts/awsome/css/all.css'|theme}}">
+<style>
+        
+        .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 , p {
+            font-family: 'Montserrat' !important;
+    }
+        </style>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="{{'assets/css/bootstrap-select.min.css'|theme}}">
+
+        <link rel="stylesheet" href="{{ 'assets/css/shards.min.css?v=2.1.0'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/css/shards-demo.css?v=2.1.0'|theme}}">
+        <link rel="stylesheet" href="{{ 'assets/css/custom.css'|theme}}">
+        {% styles %}
+
+         <script src="{{'assets/js/jquery-3.2.1.min.js'|theme}}" ></script>
+    </head>
+
+    <body>
+        <div class="loader">
+            <div class="page-loader"></div>
+        </div>
+
+        <!-- Header -->
+        <header  class=" mainheader {%if this.page.url== '/' %}ind {%else%}bg-theme sticky-head{%endif%}" >
+            {% partial 'site/header' %}
+        </header>
+
+        <!-- Content -->
+        <section id="layout-content">
+            {% page %}
+        </section>
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            {% partial 'site/footer' %}
+        </footer>
+
+        <!-- JavaScript -->
+        <!-- Dependencies -->
+
+         {% framework extras %}
+        <script src="{{'assets/js/popper.min.js'|theme}}" ></script>
+        <script src="{{'assets/js/bootstrap.min.js'|theme}}" ></script>
+
+        <script src="{{'assets/js/bootstrap-select.min.js'|theme}}"></script>
+
+        <script src="{{ 'assets/js/shards.min.js?v=2.1.0'|theme }}"></script>
+        <script src="{{ 'assets/js/demo.js?v=2.1.0'|theme}}"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="{{ 'assets/javascript/app.js'|theme}}"></script>
+        <script type="text/template" id="social-actions-template">
+        </script>
+        {% scripts %}
+    </body>
+</html>

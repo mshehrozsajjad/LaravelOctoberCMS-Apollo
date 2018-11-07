@@ -1,0 +1,187 @@
+[ListSearches]
+
+==
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Searchs</span>
+            <h3 class="page-title">All Searches Today</h3>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <div class="card card-small mb-4">
+                <!-- <div class="card-header border-bottom">
+                    <div class="mb-0">
+                        <button class="btn btn-primary">Add New</button>
+                    </div>
+                </div> -->
+                <div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0 display" id="table_newsletters">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col" class="border-0">#</th>
+                                <th scope="col" class="border-0"  data-toggle="tooltip" data-placement="top" title="User's selected College">College</th>
+                                <th scope="col" class="border-0"  data-toggle="tooltip" data-placement="top" title="User's Likelihood of acceptance in the college">Likelihood</th>
+                                <th scope="col" class="border-0"  data-toggle="tooltip" data-placement="top" title="User's Likelihood percentage of acceptance in the college">Likelihood Percentage</th>
+                                <th scope="col" class="border-0" data-toggle="tooltip" data-placement="top" title="User's GPA Scores">GPA </th>
+                                <th scope="col" class="border-0" data-toggle="tooltip" data-placement="top" title="User's SAT Scores">SAT </th>
+                                <th scope="col" class="border-0" data-toggle="tooltip" data-placement="top" title="User's ACT Scores">ACT </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for result in search_results_today %}
+                            <tr>
+                                <td class="w-10">{{ loop.index }}</td>
+                                <td class="w-50">{{ result.college }}</td>
+                                <td class="w-10">{{ result.likelihood }}</td>
+                                <td class="w-50">{{ result.likelihood_percentage }}</td>
+                                <td class="w-50">{{ result.gpaScore }}</td>
+                                <td class="w-50">{{ result.actScore }}</td>
+                                <td class="w-50">{{ result.satScore }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+             <h3 class="page-title">All Searches This Week</h3>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <div class="card card-small mb-4">
+                <!-- <div class="card-header border-bottom">
+                    <div class="mb-0">
+                        <button class="btn btn-primary">Add New</button>
+                    </div>
+                </div> -->
+                <div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0 display" id="table_newsletters">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col" class="border-0">#</th>
+                                <th scope="col" class="border-0"  data-toggle="tooltip" data-placement="top" title="User's selected College">College</th>
+                                <th scope="col" class="border-0"  data-toggle="tooltip" data-placement="top" title="User's Likelihood of acceptance in the college">Likelihood</th>
+                                <th scope="col" class="border-0"  data-toggle="tooltip" data-placement="top" title="User's Likelihood percentage of acceptance in the college">Likelihood Percentage</th>
+                                <th scope="col" class="border-0" data-toggle="tooltip" data-placement="top" title="User's GPA Scores">GPA </th>
+                                <th scope="col" class="border-0" data-toggle="tooltip" data-placement="top" title="User's SAT Scores">SAT </th>
+                                <th scope="col" class="border-0" data-toggle="tooltip" data-placement="top" title="User's ACT Scores">ACT </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for result in search_results_weekly %}
+                            <tr>
+                                <td class="w-10">{{ loop.index }}</td>
+                                <td class="w-50">{{ result.college }}</td>
+                                <td class="w-10">{{ result.likelihood }}</td>
+                                <td class="w-50">{{ result.likelihood_percentage }}</td>
+                                <td class="w-50">{{ result.gpaScore }}</td>
+                                <td class="w-50">{{ result.actScore }}</td>
+                                <td class="w-50">{{ result.satScore }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+
+            <h3 class="page-title">All Searches This Month</h3>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <div class="card card-small mb-4">
+                <!-- <div class="card-header border-bottom">
+                    <div class="mb-0">
+                        <button class="btn btn-primary">Add New</button>
+                    </div>
+                </div> -->
+                <div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0 display" id="table_newsletters">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col" class="border-0">#</th>
+                                <th scope="col" class="border-0"  data-toggle="tooltip" data-placement="top" title="User's selected College">College</th>
+                                <th scope="col" class="border-0"  data-toggle="tooltip" data-placement="top" title="User's Likelihood of acceptance in the college">Likelihood</th>
+                                <th scope="col" class="border-0"  data-toggle="tooltip" data-placement="top" title="User's Likelihood percentage of acceptance in the college">Likelihood Percentage</th>
+                                <th scope="col" class="border-0" data-toggle="tooltip" data-placement="top" title="User's GPA Scores">GPA </th>
+                                <th scope="col" class="border-0" data-toggle="tooltip" data-placement="top" title="User's SAT Scores">SAT </th>
+                                <th scope="col" class="border-0" data-toggle="tooltip" data-placement="top" title="User's ACT Scores">ACT </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for result in search_results_monthly %}
+                            <tr>
+                                <td class="w-10">{{ loop.index }}</td>
+                                <td class="w-50">{{ result.college }}</td>
+                                <td class="w-10">{{ result.likelihood }}</td>
+                                <td class="w-50">{{ result.likelihood_percentage }}</td>
+                                <td class="w-50">{{ result.gpaScore }}</td>
+                                <td class="w-50">{{ result.actScore }}</td>
+                                <td class="w-50">{{ result.satScore }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#table_newsletters').DataTable({
+        "ordering": false
+    });
+    $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>
+
+
+
+<!-- <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+    <div class="card card-small">
+        <div class="card-header border-bottom">
+            <h6 class="m-0">Users Views</h6>
+        </div>
+        <div class="card-body pt-0">
+            <div class="row border-bottom py-2 bg-light">
+                <div class="col-12 col-sm-6">
+                    <div id="blog-overview-date-range" class="input-daterange input-group input-group-sm my-auto ml-auto mr-auto ml-sm-auto mr-sm-0"
+                        style="max-width: 350px;">
+                        <input type="text" class="input-sm form-control" name="start" placeholder="Start Date" id="blog-overview-date-range-1">
+                        <input type="text" class="input-sm form-control" name="end" placeholder="End Date" id="blog-overview-date-range-2">
+                        <span class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="material-icons"></i>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 d-flex mb-2 mb-sm-0">
+                    <button type="button" class="btn btn-sm btn-white ml-auto mr-auto ml-sm-auto mr-sm-0 mt-3 mt-sm-0">View
+                        Full Report &rarr;
+                    </button>
+                </div>
+            </div>
+            <canvas height="130" style="max-width: 100% !important;" class="blog-overview-users"></canvas>
+        </div>
+    </div>
+</div> -->

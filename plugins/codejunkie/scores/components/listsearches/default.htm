@@ -1,0 +1,61 @@
+{% set searches = __SELF__.search_results %}
+
+
+
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Searchs</span>
+            <h3 class="page-title">All Search Results</h3>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <div class="card card-small mb-4">
+                <!-- <div class="card-header border-bottom">
+                    <div class="mb-0">
+                        <button class="btn btn-primary">Add New</button>
+                    </div>
+                </div> -->
+                <div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0 display" id="table_newsletters">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col" class="border-0">#</th>
+                                <th scope="col" class="border-0"  data-toggle="tooltip" data-placement="top" title="User's selected College">College</th>
+                                <th scope="col" class="border-0"  data-toggle="tooltip" data-placement="top" title="User's Likelihood of acceptance in the college">Likelihood</th>
+                                <th scope="col" class="border-0"  data-toggle="tooltip" data-placement="top" title="User's Likelihood percentage of acceptance in the college">Likelihood Percentage</th>
+                                <th scope="col" class="border-0" data-toggle="tooltip" data-placement="top" title="User's GPA Scores">GPA </th>
+                                <th scope="col" class="border-0" data-toggle="tooltip" data-placement="top" title="User's SAT Scores">SAT </th>
+                                <th scope="col" class="border-0" data-toggle="tooltip" data-placement="top" title="User's ACT Scores">ACT </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for result in searches %}
+                            <tr>
+                                <td class="w-10">{{ loop.index }}</td>
+                                <td class="w-50">{{ result.college }}</td>
+                                <td class="w-10">{{ result.likelihood }}</td>
+                                <td class="w-50">{{ result.likelihood_percentage }}</td>
+                                <td class="w-50">{{ result.gpaScore }}</td>
+                                <td class="w-50">{{ result.actScore }}</td>
+                                <td class="w-50">{{ result.satScore }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#table_newsletters').DataTable({
+        "ordering": false
+    });
+    $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>

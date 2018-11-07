@@ -1,0 +1,31 @@
+{% set news = __SELF__.newsCollection.attributes %}
+{% set nanaid = __SELF__.newsId %}
+
+<!-- ------------------------------------ -->
+<!-- EDITING -->
+<!-- ------------------------------------ -->
+
+<form class="add-new-post mb-2" data-request="AddNews::onAddNews" data-request-success="$(function(){
+        alert('Newletter Updated!');
+        $('#title,#body, #subject').val('')
+        $.request('onRefreshNewsLetter',{
+            update: { 'admin/admin_newsletter':'#myDiv' }
+        })
+    })">
+    <label for="title" class="label">
+        Post Title
+    </label>
+    <input type="hidden" value="{{news.id}}" name="news_id">
+    <input class="form-control form-control-lg mb-3" id="title" name="title" type="text" value="{{news.title}}"
+        placeholder="Your Post Title">
+    <label for="subject" class="label">
+        Subject
+    </label>
+    <input class="form-control form-control-lg mb-3" id="subject" name="subject" type="text" value="{{news.subject}}"
+        placeholder="Your Post Subject">
+    <label for="body" class="label">Body</label>
+    <textarea name="body" id="body" class="form-control form-control-lg mb-3">{{news.body}}</textarea>
+    <!-- quill editor -->
+    <!-- <div id="editor-container" class="add-new-post__editor mb-1"></div> -->
+    <button type="submit" class="btn btn-block btn-info mt-2" id="save_post">SAVE</button>
+</form>

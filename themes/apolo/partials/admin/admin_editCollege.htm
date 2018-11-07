@@ -1,0 +1,80 @@
+title = "Edit College"
+url = "/admin/editcollege"
+layout = "admin"
+is_hidden = 0
+
+[CollegesComponent]
+
+==
+ <div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">College</span>
+            <h3 class="page-title">Edit College</h3>
+        </div>
+    </div>
+    <!-- End Page Header -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <!-- Add New Post Form -->
+            <div class="card card-small mb-3">
+                <div class="card-body">
+                    <!-- ------------------------------------ -->
+                    <!-- EDITING -->
+                    <!-- ------------------------------------ -->
+
+                    <form
+                        class="add-new-post mb-2"
+                        data-request="CollegesComponent::onAEditCollege"
+                        data-request-flash
+                        data-request-success="$(function(){
+                            $.request('onRefreshListColleges',{
+                                update: { 'admin/admin_listColleges':'#myDiv' }
+                            })
+                        })"
+                    >
+                        <input type="hidden" value="{{college.id}}" name="college_id">
+                        <label for="college_short_name" class="label">
+                            College Short Name
+                        </label>
+                        <input class="form-control form-control-lg mb-3" id="college_short_name" name="college_name_short" type="text" value="{{college.college_name_short}}">
+                        <label for="college_name_full" class="label">
+                            College Full Name
+                        </label>
+                        <input class="form-control form-control-lg mb-3" id="college_name_full" name="college_name_full" type="text" value="{{college.college_name_short}}">
+                        <label for="sat_max_score" class="label">
+                            College SAT Max Score
+                        </label>
+                        <input class="form-control form-control-lg mb-3" id="sat_max_score" name="sat_max_score" type="text" value="{{college.sat_max_score}}">
+                        <label for="sat_min_score" class="label">
+                            College SAT Min Score
+                        </label>
+                        <input class="form-control form-control-lg mb-3" id="sat_min_score" name="sat_min_score" type="text" value="{{college.sat_min_score}}">
+
+                        <label for="gpa_max_score" class="label">
+                            College GPA Max Score
+                        </label>
+                        <input class="form-control form-control-lg mb-3" id="gpa_max_score" name="gpa_max_score" type="text" value="{{college.gpa_max_score}}">
+                        <label for="gpa_min_score" class="label">
+                            College GPA Min Score
+                        </label>
+                        <input class="form-control form-control-lg mb-3" id="gpa_min_score" name="gpa_min_score" type="text" value="{{college.gpa_min_score}}">
+
+                        <label for="act_max_score" class="label">
+                            College ACT Max Score
+                        </label>
+                        <input class="form-control form-control-lg mb-3" id="act_max_score" name="act_max_score" type="text" value="{{college.act_max_score}}">
+                        <label for="act_min_score" class="label">
+                            College ACT Min Score
+                        </label>
+                        <input class="form-control form-control-lg mb-3" id="act_min_score" name="act_min_score" type="text" value="{{college.act_min_score}}">
+                        <button type="submit" class="btn btn-block btn-info mt-2" id="save_post">SAVE</button>
+                    </form>
+                    <!-- {% component 'Editcollege' %} -->
+                </div>
+            </div>
+            <!-- / Add New Post Form -->
+        </div>
+    </div>
+</div>

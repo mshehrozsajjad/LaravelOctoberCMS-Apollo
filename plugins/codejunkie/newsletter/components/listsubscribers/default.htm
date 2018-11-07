@@ -1,0 +1,65 @@
+{% set subscribers = __SELF__.subscribersCollection %}
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Subscribers</span>
+            <h3 class="page-title">All Subscribers</h3>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <div class="card card-small mb-4">
+                <div class="card-header border-bottom">
+                    <div class="mb-0">
+                        <h3>Subscribers</h3>
+                    </div>
+                </div>
+                <div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0 display " id="table_subscribers">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col" class="border-0">#</th>
+                                <th scope="col" class="border-0">First Name</th>
+                                <th scope="col" class="border-0">Last Name</th>
+                                <th scope="col" class="border-0">Email</th>
+                                <th scope="col" class="border-0">Status</th>
+                                <th scope="col" class="border-0"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for subscriber in subscribers %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ subscriber.first_name }}</td>
+                                <td>{{ subscriber.last_name }}</td>
+                                <td>{{ subscriber.email }}</td>
+                                <td class="{% if subscriber.active %} text-white bg-success {% else %} text-white bg-secondary {% endif %}" >
+                                    {% if subscriber.active %} Active {% else %} Inactive {% endif %}</td>
+                                <td>
+                                    <form data-request="Subscribers::onDeleteSubscriber" data-request-success="$(function(){
+                                        alert('Subscriber Deleted Successfully!');
+                                        $.request('onRefreshSubscribe', {
+                                            update: { 'admin/admin_subscribers': '#myDiv' }
+                                            });
+                                        })">
+                                        <input type="hidden" name="subscriber_id" value="{{subscriber.id}}">
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+        $('#table_subscribers').DataTable({
+            "ordering": false
+        });
+
+    </script>

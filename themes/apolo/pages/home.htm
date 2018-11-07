@@ -1,0 +1,91 @@
+title = "Apollo"
+url = "/"
+layout = "default"
+[Subscribers]
+==
+
+{% partial 'site/welcome'%}
+<style>
+
+    .welcome {
+
+
+  -webkit-transform: skewY(3deg);
+  -moz-transform: skewY(3deg);
+  -ms-transform: skewY(3deg);
+  -o-transform: skewY(3deg);
+  transform: skewY(3deg);
+  outline: 1px solid transparent;
+}
+
+
+
+    .welcome > * {
+  -webkit-transform: skewY(-3deg);
+  -moz-transform: skewY(-3deg);
+  -ms-transform: skewY(-3deg);
+  -o-transform: skewY(-3deg);
+  transform: skewY(-3deg);
+  outline: 1px solid transparent;
+}
+    .how  {
+
+
+  -webkit-transform: skewY(-3deg);
+  -moz-transform: skewY(-3deg);
+  -ms-transform: skewY(-3deg);
+  -o-transform: skewY(-3deg);
+  transform: skewY(-3deg);
+  outline: 1px solid transparent;
+}
+
+
+
+    .how > * {
+        overflow: hidden;
+  -webkit-transform: skewY(3deg);
+  -moz-transform: skewY(3deg);
+  -ms-transform: skewY(3deg);
+  -o-transform: skewY(3deg);
+  transform: skewY(3deg);
+  outline: 1px solid transparent;
+}
+    .how2 {
+        overflow: hidden;
+  -webkit-transform: skewY(3deg);
+  -moz-transform: skewY(3deg);
+  -ms-transform: skewY(3deg);
+  -o-transform: skewY(3deg);
+  transform: skewY(3deg);
+  outline: 1px solid transparent;
+}
+ 
+
+
+
+</style>
+<!-- Page Content -->
+<div class="page-content">
+    <!-- Content -->
+    <div class="content clearfix">
+        {% partial 'site/intro' %}
+
+        {% partial 'site/howitworks' %}
+
+        {% partial 'site/promo' %}
+<div class=" how2 bg-theme py-5">
+    <div class="container my-5">
+        <div id='stars1'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+        <div class="py-5">
+
+        </div>
+    </div>
+</div>
+         {% partial 'site/vision' %}
+
+        {% partial 'site/newsletter' %}
+
+    </div>
+</div>

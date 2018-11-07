@@ -1,0 +1,141 @@
+title = "Demo"
+url = "/demo"
+layout = "default"
+is_hidden = 0
+[Subscribers]
+[Score]
+==
+
+
+
+
+<!-- Page Content -->
+<style>
+    .searchwidth{
+        width: 100% !important;
+    }
+    .searching{
+       width: 100% !important;
+   color: #fff;
+    background: transparent !important;
+    border-color: transparent !important;
+    }
+    .dropdown-menu {
+      width: 100%;
+    }
+
+    .btn{
+     width: 100%;
+    }
+    select option {
+    background-color: transparent !important;
+}select  {
+    background-color: transparent !important;
+}
+</style>
+  <div class="page-content pt-0" style="margin-top: 0px;">
+    <!-- Content -->
+    <div class="content clearfix">
+      <div id="introduction" class="container-fluid   bg-theme py-5">
+        <div class="p p-1"></div>
+        <div class="p p-2"></div>
+        <div class="p p-3"></div>
+        <div id='stars1'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+        <div class="row justify-content-center py-5 text-center">
+          <div class="col-sm-11 py-5 ">
+            <div class="inner-wrapper mt-auto mb-auto">
+              <h1 class="slide-in text-white">Apollo’s Admissions Calculator </h1>
+              <div class="row justify-content-start my-auto">
+                <div class="col-sm-1 offset-sm-1 my-auto d-none d-sm-block">
+                  <img  src="{{ 'assets/images/demo/astro3.png'|theme }}" alt="Shard" class="shard demoAstro1 ">
+                </div>
+                <div class="col-sm-8 ">
+                  <p class="lead mx-auto text-white mt-3">
+                    Input your stats and see the probability of you getting accepted into the provided colleges!
+                  </p>
+                  <p >
+                      Please Note: These admissions are rough estimates and will become more precise as we progress! Factors such as Extracurriculars will be added soon!
+                  </p>
+                <div id="result_partial">
+                    <form class="form-horizontal mx-auto"
+                    data-request-validate
+                    data-request-flash
+                    >
+                        <div class="row  justify-content-start">
+                            <div class="col-sm-6 offset-sm-3">
+                                <div class="form-group justify-content-center">
+                                    <!-- <input class="form-control app-input mb-2 text-center text-white" data-request-confirm="is this your correct SAT score?" name="SAT" id="SAT" type="number" placeholder="SAT"> -->
+                                    <input class="form-control app-input mb-2 text-center text-white" data-track-input name="SAT"
+                                        id="SAT" type="number" min="400" max="1600" placeholder="SAT range: 400-1600">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 offset-sm-3">
+                                <div class="form-group justify-content-center">
+                                    <input class="form-control app-input mb-2 text-center text-white" data-track-input name="GPA"
+                                        id="GPA" type="number" max="4.0000" min="0.0000" step="0.0001" placeholder="Unweighted GPA range: 0.00 - 4.00">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 offset-sm-3">
+                                <div class="form-group justify-content-center">
+                                    <input class="form-control app-input  mb-2 text-center text-white" data-track-input name="ACT"
+                                        id="ACT" type="number" min="1" max="36" placeholder="ACT range: 1-36">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 mt-5">
+                                <div class="form-group justify-content-center mt-5">
+                                    <div class=" app-input  mb-2 text-center text-white"><span class="input-group-prepend">
+                                       <a data-request="Score::onSubmitCalculate"
+                                       data-request-validate
+                                       data-request-flash
+                                       data-request-update="calcresult: '#result'">
+
+                                    </a>
+                                    <select style="width: 100%;"  id="collegeName" data-style="searching"    data-track-input  name="collegeName"  class="selectpicker searchwidth" data-live-search="true"                >
+                                    <option selected>Please Select a College</option>
+                                    {% for college in colleges_data %}
+                                    <option data-tokens="{{college.college_name_short}}">{{college.college_name_short}} - {{college.college_name_full}} </option>
+                                    {% endfor %}
+                                </select>
+                                        </span>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary"
+                            data-request-validate
+                            data-request-flash
+                            data-request="Score::onSubmitCalculate"
+                            data-request-update="calcresult: '#result'"
+                         > Chance Me </button>
+                    </form>
+                </div>
+
+              </div>
+            {% partial 'calcresult' %}
+
+            </div>
+          </div>
+        </div>
+            <div class="col-sm-11 py-5 ">
+
+            <div class="row justify-content-start mt-5">
+
+                <div class="col-sm-9 my-auto">
+                  <h1 class="text-white mt-5">Like What You’ve Seen So Far?</h1>
+                </div>
+                <div class="col-sm-2 my-auto d-none d-sm-block ">
+                    <img   src="{{ 'assets/images/demo/astro2.png'|theme }}" alt="Shard" class="shard demoAstro1 ">
+                </div>
+              </div>
+
+            </div>
+      </div>
+
+      {% partial 'site/newsletter' %}
+
+    </div>
+
+  </div>

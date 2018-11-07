@@ -1,0 +1,103 @@
+title = "Apollo"
+url = "/how-it-works"
+layout = "default"
+[Subscribers]
+==
+<link rel="stylesheet" href="{{'assets/step/css/style.css'|theme}}">
+<script src="{{'assets/step/js/main.js'|theme}}"></script>
+<div class="page-content pt-0">
+    <!-- Content -->
+    <div class="content clearfix">
+        <div id="introduction" class="container-fluid   bg-theme py-5">
+            <div class="p p-1"></div>
+            <div class="p p-2"></div>
+            <div class="p p-3"></div>
+            <div id='stars1'></div>
+            <div id='stars2'></div>
+            <div id='stars3'></div>
+            <div class="row justify-content-center py-5 text-center">
+                <div class="col-sm-11 ">
+                    <div class="inner-wrapper mt-5 mb-auto">
+                        <h1 class="slide-in text-white">How it Works </h1>
+                        <div class="row justify-content-start my-auto">
+                            <div class="col-sm-1 offset-sm-1 my-auto d-none d-sm-block flipX">
+                                <img src="{{ 'assets/images/demo/astro.png'|theme }}" alt="Shard" class="shard demoAstro1 ">
+                            </div>
+                            <div class="col-sm-8 ">
+                                <div class="f1-steps  ">
+                                    <div class="f1-progress">
+                                        <div class="f1-progress-line" id="line" data-now-value="10" data-number-of-steps="4" style="width: 25%;"></div>
+                                    </div>
+                                    <div class="step-one f1-step active">
+                                        <a onclick="stepone()">
+                                            <div class="f1-step-icon">1</div>
+
+                                        </a>
+                                    </div>
+                                    <div class="step-two f1-step">
+                                        <a onclick="steptwo()">
+                                            <div class="f1-step-icon">2</div>
+
+
+                                        </a>
+                                    </div>
+                                    <div class="step-three f1-step">
+                                        <a onclick="stepthree()">
+                                            <div class="f1-step-icon">3</div>
+
+                                        </a>
+                                    </div>
+                                    <div class="step-four f1-step">
+                                        <a onclick="stepfour()">
+                                            <div class="f1-step-icon">4</div>
+
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="step-div-one">
+                                    <i class="iconhiw mt-3 fas fa-user-astronaut"></i>
+                                    <h2 class="hiw-title  mt-3">About Us</h2>
+                                    <p>Shouldn't be first phrase be "Worth noting that || will return true if EITHER var A OR var B is true" ?? It implies what you mentioned is (true | true) = true. which is common and understood.Shouldn't be first phrase
+                                        be "Worth noting that || will return true if EITHER var A OR var B is true" ?? It implies what you mentioned is (true | true) = true. which is common and understood.Shouldn't be first phrase be "Worth noting that
+                                        || will return true if EITHER var A OR var B is true" ?? It implies what you mentioned is (true | true) = true. which is common and understood.</p>
+                                </div>
+                                <div id="step-div-two">
+                                    <i class="iconhiw mt-3 fas fa-search"></i>
+                                    <h2 class="hiw-title  mt-3">Chance me</h2>
+                                    <p>Shouldn't be first phrase be "Worth noting that || will return true if EITHER var A OR var B is true</p>
+                                </div>
+                                <div id="step-div-three">
+                                    <i class="iconhiw mt-3 fas fa-bell"></i>
+                                    <h2 class="hiw-title mt-3">Remind me</h2>
+                                    <p>Shouldn't be first phrase be "Worth noting that || will return true if EITHER var A OR var B is true" ?? It implies what you mentioned is (true | true) = true. which is common and understood.Shouldn't be first phrase
+                                        be "Worth noting that || will return true if EITHER var A OR var B is true" ?? It implies what you mentioned is (true | true) = true. which is common and understood.Shouldn't be first phrase be "Worth noting that
+                                        || will return true if EITHER var A OR var B is true" ?? It implies what you mentioned is (true | true) = true. which is common and understood.</p>
+                                </div>
+                                <div id="step-div-four">
+                                    <i class="iconhiw mt-3 fas fa-map-marked-alt"></i>
+                                    <h2 class="hiw-title  mt-3">My Track</h2>
+                                    <p>Shouldn't be first phrase be "Worth noting that || will return true if EITHER var A OR var B is true" ?? It implies what you mentioned is (true | true) = true. which is common and understood.Shouldn't be first phrase
+                                        be "Worth noting that || will return true if EITHER var A OR var B is true" ?? It implies what you mentioned is (true | true) = true. which is common and understood.Shouldn't be first phrase be "Worth noting that
+                                        || will return true if EITHER var A OR var B is true" ?? It implies what you mentioned is (true | true) = true. which is common and understood.</p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="action-links slide-in">
+                            <a href="{{'demo'|page }}" class="btn btn-primary btn-lg btn-pill align-self-center mr-2">
+                <i class="fa fa-rocket mr-1"></i> Get Started
+            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% partial 'site/newsletter' %}
+
+        </div>
+
+    </div>
+    <script>
+    </script>

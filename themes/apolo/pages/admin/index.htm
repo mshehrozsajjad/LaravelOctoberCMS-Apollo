@@ -1,0 +1,92 @@
+title = "Admin"
+url = "/admin"
+layout = "admin"
+is_hidden = 0
+
+[AddNews]
+
+[Subscribers]
+
+[session]
+security = "user"
+allowedUserGroups[] = "admin"
+redirect = "adminlogin"
+
+[CollegesComponent]
+==
+<?php
+function onRefreshHome()
+{
+    return [
+        '#myDiv' => $this->renderPartial('admin/admin_index')
+    ];
+}
+function onRefreshNewsLetter(){
+    return [
+        '#myDiv' => $this->renderPartial('admin/admin_newsletter'),
+        [
+            'news_id' => post('news_id')
+        ]
+    ];
+}
+function onRefreshSubscribe(){
+    return [
+        '#myDiv' => $this->renderPartial('admin/admin_subscribers')
+    ];
+}
+function onRefreshAddNews(){
+    return [
+        '#myDiv' => $this->renderPartial('admin/admin_addNews')
+    ];
+}
+function onRefreshEditNews(){
+    return [
+        '#myDiv' => $this->renderPartial('admin/admin_editNews',
+        [
+            'news_id' => post('news_id')
+        ]
+        )
+
+    ];
+}
+function onRefreshAddCollege(){
+    return [
+        '#myDiv' => $this->renderPartial('admin/admin_addCollege')
+    ];
+}
+function onRefreshListSearches(){
+    return [
+        '#myDiv' => $this->renderPartial('admin/admin_listSearches')
+    ];
+}
+function onRefreshListColleges(){
+    return [
+        '#myDiv' => $this->renderPartial('admin/admin_listColleges')
+    ];
+}
+function onRefreshEditCollege(){
+    return [
+        '#myDiv' => $this->renderPartial('admin/admin_editCollege',
+            [
+                'college_id' => post('college_id')
+            ]
+        )
+    ];
+}
+?>
+==
+{% put styles%}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+{%  endput %}
+
+<div id="myDiv">{% partial 'admin/admin_index' %}</div>
+
+{% put scripts %}
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+<script>
+
+</script>
+{% endput %}

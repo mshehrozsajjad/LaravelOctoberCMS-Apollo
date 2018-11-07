@@ -1,0 +1,85 @@
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">College</span>
+            <h3 class="page-title">Add College</h3>
+        </div>
+    </div>
+    <!-- End Page Header -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-small mb-3">
+                <div class="card-body">
+                    <form class="add-new-post mb-2" data-request-flash data-request="CollegesComponent::onAddCollege"
+                        data-request-success=" $(
+                                                function(){
+                                                    $('#college_name_short, #college_name_full, #sat_min, #sat_max, #gpa_min, #gpa_max, #act_min, #act_max').val('')
+                                                }
+                                            )">
+
+                        <label for="college_name_short" class="label">
+                            College Short Name:
+                        </label>
+                        <input class="form-control" id="college_name_short" name="college_name_short"
+                            type="text" placeholder="College Short Name">
+
+
+                        <label for="college_name_full" class="label">
+                            College Full Name:
+                        </label>
+                        <input class="form-control" id="college_name_full" name="college_name_full"
+                            type="text" placeholder="College Full Name">
+
+
+
+                        <label for="sat_max" class="label">
+                            Max SAT Score
+                        </label>
+                        <input class="form-control" id="sat_max" min="400" max="1600" name="sat_max" type="text"
+                            placeholder="Max SAT Score Accepted e.g., 1600">
+
+                        <label for="sat_min" class="label">
+                            Min SAT Score
+                        </label>
+                        <input class="form-control" id="sat_min" min="400" max="1600" name="sat_min" type="text"
+                            placeholder="Min SAT Score e.g., 400">
+
+
+
+                        <label for="gpa_max" class="label">
+                            Max GPA Score
+                        </label>
+                        <input class="form-control" id="gpa_max" name="gpa_max" type="text"
+                            placeholder="Max GPA Score e.g., 4.00">
+
+                        <label for="gpa_min" class="label">
+                            Min GPA Score
+                        </label>
+                        <input class="form-control" id="gpa_min" name="gpa_min" type="text"
+                            placeholder="Min GPA Score e.g., 0.00">
+
+
+
+                        <label for="act_max" class="label">
+                            Max ACT Score
+                        </label>
+                        <input class="form-control" id="act_max" name="act_max" type="text"
+                            placeholder="Max ACT Score e.g., 36">
+
+                        <label for="act_min" class="label">
+                            Min ACT Score
+                        </label>
+                        <input class="form-control" id="act_min" name="act_min" type="text"
+                            placeholder="Min ACT Score e.g., 1">
+
+                        <button type="submit" class="btn btn-block btn-primary mt-2" data-attach-loading id="add_post">Add
+                            College</button>
+                    </form>
+                </div>
+                <!-- / Add New Post Form -->
+            </div>
+
+        </div>
+    </div>
+</div>

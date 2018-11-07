@@ -1,0 +1,47 @@
+
+{% set mostvisitedpage = __SELF__.mostvisitedpage %}
+
+{% set visitorsAndPageViews = __SELF__.visitorsAndPageViews %}
+{% set todaysData = __SELF__.todaysData %}
+{% set total_subscribers = __SELF__.total_subscribers %}
+{% set active_subscribers = __SELF__.active_subscribers %}
+{% set newData = __SELF__.newData %}
+{% set namee = __SELF__.namee %}
+
+<div class="container">
+    total subscribers: {{total_subscribers}} <br>
+    active subscribers: {{active_subscribers}}
+<br>
+<br><hr>
+            <div class="alert alert-success">Most Visited Pages</div> <br>
+        {{mostvisitedpage | json_encode}}
+        {% for pages in mostvisitedpage  %}
+            <div class="alert alert-danger">{{pages.url}}</div>
+        <hr>
+        {% for page in pages  %}
+            {{page}}
+        {% endfor %}
+        {% endfor %}
+        <br>
+        <br>
+        <br><hr>
+        <div class="alert alert-success">Visitors And Page Views </div>
+        <br>
+
+        {{visitorsAndPageViews}}
+        {{visitorsAndPageViews | json_encode}} <br>
+
+            <hr>
+
+        <br>
+        <br><hr>
+        <div class="alert alert-success">22222222222Visitors And Page Views </div>
+        <br>
+
+        {{todaysData}}
+        {{todaysData | json_encode}} <br>
+
+            <hr>
+
+
+</div>

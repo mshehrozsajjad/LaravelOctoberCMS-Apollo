@@ -1,0 +1,41 @@
+title = "adminlogin"
+url = "/admin/login"
+layout = "default"
+is_hidden = 0
+
+[account]
+paramCode = "code"
+forceSecure = 0
+==
+<!-- Page Content -->
+<div class="page-content">
+    <!-- Content -->
+    <div class="content clearfix ">
+        <div class="container-fluid h-100 p-5">
+            {% if not user %}
+
+            <div class="row">
+
+                <div class="col-md-6 offset-md-3 ">
+                    <h3 class="text-center">Sign in</h3>
+                    {% partial account ~ '::signin' %}
+                </div>
+
+
+
+            </div>
+
+            {% else %}
+
+            <H3>You are not an admin. Please Log out.</H3>
+
+                  <a  data-request="onLogout" data-request-data="redirect: '/admin/login'">
+                    <button class="btn btn-danger">
+
+                        Logout
+                    </button>
+                    </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

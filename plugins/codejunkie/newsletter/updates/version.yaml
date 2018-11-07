@@ -1,0 +1,7 @@
+1.0.1: First version of Newsletter
+1.0.2:
+    - Create the News Table
+    - create_news_table.php
+1.0.3:
+    - Create the Subscribers Table
+    - create_subscribers_table.php

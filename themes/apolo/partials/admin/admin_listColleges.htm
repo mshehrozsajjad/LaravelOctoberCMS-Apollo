@@ -1,0 +1,89 @@
+[CollegesComponent]
+
+==
+
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">College</span>
+            <h3 class="page-title">All Colleges</h3>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <div class="card card-small mb-4">
+                <div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0 display" id="table_Colleges">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col" class="border-0">#</th>
+                                <th scope="col" class="border-0">Abbreviation</th>
+                                <th scope="col" class="border-0">Full Name</th>
+                                <th scope="col" class="border-0">SAT Max Score</th>
+                                <th scope="col" class="border-0">SAT Min Score</th>
+                                <th scope="col" class="border-0">GPA Max Score</th>
+                                <th scope="col" class="border-0">GPA Min Score</th>
+                                <th scope="col" class="border-0">ACT Max Score</th>
+                                <th scope="col" class="border-0">ACT Min Score</th>
+                                <th scope="col" class="border-0"></th>
+                                <th scope="col" class="border-0"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for college in colleges %}
+                            <tr>
+                                <td class="w-10">{{ loop.index }}</td>
+                                <td class="w-50">{{ college.college_name_short }}</td>
+                                <td class="w-50">{{ college.college_name_full }}</td>
+                                <td class="w-50">{{ college.sat_max_score }}</td>
+                                <td class="w-50">{{ college.sat_min_score }}</td>
+                                <td class="w-50">{{ college.gpa_max_score }}</td>
+                                <td class="w-50">{{ college.gpa_min_score }}</td>
+                                <td class="w-50">{{ college.act_max_score }}</td>
+                                <td class="w-50">{{ college.act_min_score }}</td>
+                                <td class="w-10">
+                                    <form data-request="CollegesComponent::onEditCollege">
+                                        <input type="hidden" name="college_id" value="{{college.id}}">
+                                        <button class="btn btn-info" type="submit" data-request="onRefreshEditCollege"
+                                            data-request-data="college_id:'{{college.id}}'">Edit</button>
+                                    </form>
+                                </td>
+                                <td class="w-10">
+                                    <!-- <form data-request="Addcolleges::onDeleteCollege" data-request-success="$(function(){
+                                                alert('College Deleted Successfully!');
+                                                $.request('onRefreshCollege',{
+                                                    update: { 'admin/admin_College':'#myDiv' }
+                                                })
+                                            })
+                                        ">
+                                        <input type="hidden" name="colleges_id" value="{{colleges.id}}"> -->
+                                        <form
+                                            data-request-flash
+                                            data-request="CollegesComponent::onDeleteCollege"
+                                            data-request-confirm="Are you sure?"
+                                            data-request-success="$(function(){
+                                            $.request('onRefreshListColleges',{
+                                                update: { 'admin/admin_listColleges':'#myDiv' }
+                                                })
+                                            })
+                                        ">
+                                        <input type="hidden" name="college_id" value="{{college.id}}">
+                                        <button type="submit" class="btn btn-danger" >Delete</button>
+                                    </form>                                    <!-- </form> -->
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $('#table_Colleges').DataTable({
+        "ordering": false
+    });
+</script>

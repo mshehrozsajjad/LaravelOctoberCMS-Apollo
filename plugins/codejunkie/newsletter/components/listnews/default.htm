@@ -1,0 +1,117 @@
+{% set newsletter = __SELF__.newsCollection %}
+{% set newsDetails = __SELF__.newsDetails %}
+{% set name3 = __SELF__.name3 %}
+
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Newsletter</span>
+            <h3 class="page-title">All Newsletter</h3>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <div class="card card-small mb-4">
+                <div class="card-header border-bottom">
+                    <div class="mb-0">
+                        <button class="btn btn-primary">Add New</button>
+                    </div>
+                </div>
+                <div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0 display" id="table_newsletters">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col" class="border-0">#</th>
+                                <th scope="col" class="border-0">Title</th>
+                                <th scope="col" class="border-0"></th>
+                                <th scope="col" class="border-0"></th>
+                                <th scope="col" class="border-0"></th>
+                                <th scope="col" class="border-0"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for news in newsletter %}
+                            <tr>
+                                <td class="w-10">{{ loop.index }}</td>
+                                <td class="w-50">{{ news.title }}</td>
+                                <td class="w-10">
+                                    <!-- TODO: impliment update partial logic == single modal -->
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{news.id}}">View</button>
+                                </td>
+                                <td class="w-10">
+                                    <form data-request="AddNews::onSendMail" data-request-success="alert('Newsletter dispatched to Subscribers!')">
+                                        <input type="hidden" name="news_subject" value="{{news.subject}}">
+                                        <input type="hidden" name="news_body" value="{{news.body}}">
+                                        <button class="btn btn-success">Send</button>
+                                    </form>
+                                </td>
+                                <td class="w-10">
+                                    <form data-request="EditNews::onRun">
+                                        <input type="hidden" name="user_id" value="{{news.id}}">
+                                        <button class="btn btn-info" type="submit" data-request="onRefreshEditNews"
+                                            data-request-data="news_id:'{{news.id}}'">Edit</button>
+                                    </form>
+                                </td>
+                                <td class="w-10">
+                                    <form data-request="AddNews::onDeleteNewsLetter" data-request-success="$(function(){
+                                                alert('Newsletter Deleted Successfully!');
+                                                $.request('onRefreshNewsLetter',{
+                                                    update: { 'admin/admin_newsletter':'#myDiv' }
+                                                })
+                                            })
+                                        ">
+                                        <input type="hidden" name="news_id" value="{{news.id}}">
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <!-- --------------------------------------- -->
+                            <!-- ------------   MODAL    --------------- -->
+                            <!-- --------------------------------------- -->
+                            <div class="modal" id="myModal-{{news.id}}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">NewsLetter Preview</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div class="modal-body  mb-4 pt-3">
+                                            <div class=" text-left">
+
+                                                <strong class="text-muted  mb-3">Title</strong> <br>
+                                                <h5 class="mb-1 pl-2">{{news.title}}</h5>
+                                                <hr>
+                                                <strong class="text-muted  mb-3">Subject</strong> <br>
+                                                <span class="pl-2">{{news.subject}}</span>
+                                                <br>
+                                                <br>
+                                                <strong class="text-muted mb-3">Body</strong> <br>
+                                                <span class="pl-2">{{news.body}}</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#table_newsletters').DataTable({
+        "ordering": false
+    });
+</script>
